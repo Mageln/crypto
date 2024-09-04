@@ -5,3 +5,11 @@ export  function percentDifference(a, b) {
 export function capitaliza(str){
     return str.charAt(0).toUpperCase() + str.substr(1)
 }
+
+// export const sumPortfolio = (assets) =>{
+//     return {assets.map(asset => {
+//             const coin = crypto.find(c => c.id === asset.id)
+//             return asset.amount * coin.price
+//         }).reduce((acc, v) => acc += v, 0).toFixed(2)}
+    
+// }

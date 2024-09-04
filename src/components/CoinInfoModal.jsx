@@ -1,4 +1,6 @@
-import { Divider, Flex, Tag, Typography } from "antd"
+/* eslint-disable react/prop-types */
+import { Divider,  Tag, Typography } from "antd"
+import { CoinInfo } from "./CoinInfo"
 
 
 export const CoinInfoModal = ({ coin }) => {
@@ -6,13 +8,7 @@ export const CoinInfoModal = ({ coin }) => {
     return (
         <>
 
-            <Flex align="center">
-                <img src={coin.icon} alt={coin.name} style={{ width: 40, marginRight: 10 }} />
-                <Typography.Title level={2} style={{ margin: 0 }}>
-                    ({coin.symbol})
-                    {coin.name}
-                </Typography.Title>
-            </Flex>
+          <CoinInfo coin={coin} />
             <Divider />
             <Typography.Paragraph>
                 <Typography.Text strong>
@@ -42,44 +38,45 @@ export const CoinInfoModal = ({ coin }) => {
 
 
 
-            <Typography.Paragraph>
+            {coin.price && <Typography.Paragraph>
                 <Typography.Text strong>
                     Price:
                 </Typography.Text>
 
                 {coin.price.toFixed(2)}$
-            </Typography.Paragraph >
+            </Typography.Paragraph >}
 
-            <Typography.Paragraph>
+            {coin.priceBtc && <Typography.Paragraph>
                 <Typography.Text strong>
                     Price BTC:
                 </Typography.Text>
 
                 {coin.priceBtc}
-            </Typography.Paragraph >
+            </Typography.Paragraph >}
 
-            <Typography.Paragraph>
+            {coin.marketCap && <Typography.Paragraph>
                 <Typography.Text strong>
                     Market Cap:
                 </Typography.Text>
 
                 {coin.marketCap}$
-            </Typography.Paragraph >
+            </Typography.Paragraph >}
 
-            <Typography.Paragraph>
+           { coin.contractAddress && <Typography.Paragraph>
                 <Typography.Text strong>
                     Contract Address:
                 </Typography.Text>
 
                 {coin.contractAddress}
-            </Typography.Paragraph >
-            <Typography.Paragraph>
+            </Typography.Paragraph >}
+
+           {coin.websiteUrl && <Typography.Paragraph>
                 <Typography.Text strong>
                     Website :
                 </Typography.Text>
 
                <a href={coin.websiteUrl}>{coin.websiteUrl}</a> 
-            </Typography.Paragraph >
+            </Typography.Paragraph > }
         </>
     )
 
